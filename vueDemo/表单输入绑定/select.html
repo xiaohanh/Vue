@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>下拉菜单</title>
+    </head>
+    <body>
+
+        <!-- 传统实现方法 -->
+        <select name="selected">
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+        </select>
+        
+       <!-- 使用vue.js实现 -->
+       <div id="app">
+           <select v-model="selected">
+               <option disabled value="">请选择</option>
+               <option value="aa">A</option>
+               <option>B</option>
+               <option>C</option>
+           </select>
+           </br>
+           <span>Selected:{{selected}}</span>
+       </div>
+      </br>
+
+       <div id="app2">
+           <select v-model="selected" multiple style="width:50px;">
+               <option>A</option>
+               <option>B</option>
+               <option>C</option>
+           </select>
+           </br>
+           <span>Selected:{{selected}}</span>
+       </div>
+       </br>
+       
+       <div id="app3">
+           <select v-model="selected">
+               <option v-for="option in options" v-bind:value="option.value">
+                   {{option.text}}
+               </option>
+           </select>
+           <span>Selected: {{selected}}</span>
+       </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                selected:''
+            }
+        });
+
+       var app2= new Vue({
+           el:"#app2",
+           data:{
+               selected:[]
+           }
+       });
+   
+      var app3= new Vue({
+          el:"#app3",
+          data:{
+              selected: 'A',
+              options:[
+                  {text:"One", value:"A"},
+                  {text:"Two", value:"B"},
+                  {text:"Three",value:"C"}
+              ]
+          }
+      });
+        
+    </script>
+</html>  

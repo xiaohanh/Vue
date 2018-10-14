@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>复选框</title>
+    </head>
+    <body>
+
+        <!-- 传统实现方法 -->
+         <div id="app">
+             <input type="checkbox" value="man" name="fruit" id="apple"/>
+             <label for="apple">苹果</label>  
+             <input type="checkbox" value="woman" name="fruit" id="orange"/>
+             <laberl for="orange">橘子</label>
+         </div>
+
+       <!-- 使用vue.js实现 -->
+       <div id="app2">
+           <label><input type="checkbox" v-model="fruit.apple" />苹果</label>
+           <label><input type="checkbox" v-model="fruit.orange" />橘子</label>
+           <p>已选：{{fruit}}</p>
+       </div>
+      
+       <div id="app3">
+           <label><input type="checkbox" v-model="fruit" value="apple" />苹果</label>
+           <label><input type="checkbox" v-model="fruit" value="orange"/>橘子</label>
+           <p>已选：{{fruit}}</p>
+       </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app2 = new Vue({
+            el:"#app2",
+            data:{
+                fruit:{apple:false,orange:false}
+            }
+        });
+        
+       var app3= new Vue({
+           el:"#app3",
+           data:{
+               fruit:[]
+           }
+       });
+    </script>
+</html>  

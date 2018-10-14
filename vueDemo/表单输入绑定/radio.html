@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>单选框</title>
+    </head>
+    <body>
+
+        <!-- 传统实现方法 -->
+         <div id="app">
+             <input type="radio" value="man" name="gender" id="man"/>
+             <label for="man">男</label>  
+             <input type="radio" value="woman" name="gender" id="woman"/>
+             <laber for="woman">女</label>
+         </div>
+
+       <!-- 使用vue.js实现 -->
+       <div id="app2">
+           <label><input type="radio" value="man" v-model="gender"/>男</label>
+           <label><input type="radio" value="woman" v-model="gender"/>女</label>
+           <p>已选：{{gender}}</p>
+       </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app2 = new Vue({
+            el:"#app2",
+            data:{
+            gender:''
+            }
+        });
+    </script>
+</html> 

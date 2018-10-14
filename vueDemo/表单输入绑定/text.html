@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>基础用法:文本</title>
+    </head>
+    <body>
+         <div id="app">
+             <h2>{{ title }}</h2>
+            <input v-model="name">
+            <h3>{{ name }}</h3>
+            <button v-on:click="clickMe">Click me!</button>
+            <h3>{{ message }}</h3>
+            <textarea v-model="message" placeholder="add multiple lines"></textarea>
+         </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+            new Vue({
+               el:"#app",
+               data:{
+                   title:"Hello world!",
+                   name:"canfoo",
+                   message: ''
+               },
+               methods:{
+                    clickMe: function(){
+                        this.title = "Hello world";
+                    }
+                },     
+                mounted: function(){
+                        window.setTimeout(()=>{
+                            this.title = "你好";
+                        },3000);
+                    }
+           }); 
+    </script>
+</html>

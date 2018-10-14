@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+     <head>
+           <title>通过事件向父组件发送消息</title>
+     </head>
+     <body>
+         <div id="blog-posts-events-demo">
+             <div :style="{ fontSize: postFontSize + 'em'}">
+                 <blog-post
+                  v-for="post in posts"
+                  v-bind:key="post.id"
+                  v-bind:post="post"
+                  v-on:enlarge-text="postFontSize+=0.1"
+                  ></blog-post>
+             </div>
+         </div>
+         <button v-on:click="$emit('enlarge-text')">Enlarge text</button>
+     </body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:"#blog-posts-events-demo",
+        data:{
+            posts:[],
+            postFontSize: 1
+        }
+    })
+    Vue.component('blog-post', {
+        props: ['post'],
+        template:`
+            <div class="blog-post">
+                <h3>{{ post.title }}</h3>
+                <button>Enlarge text</button>
+                <div v-html="post.content"></div>
+            </div>
+        `
+  });
+  var app = new Vue({el: '#components-demo'});
+
+ //通过Prop向子组件传递数据
+ Vue.component("blog-post",{
+     props: ['title'],
+     template: '<h3>{{ title }}</h3>'
+ });
+var app2= new Vue({el: "#prop"});
+
+</script>

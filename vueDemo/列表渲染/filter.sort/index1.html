@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>过滤/排序效果</title>
+    </head>
+    <body>
+        <ul id="fs">
+            <li v-for="n in event(numbers)">{{ n }}</li>
+        </ul>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script>
+     var vm = new Vue({
+         el:"#fs",
+         data:{
+                numbers: [1,2,3,4,5]
+            },
+         methods: {
+              event:function(numbers){
+                  return numbers.filter(function (number){
+                      return number % 2 === 0
+                  })
+              }    
+         }
+     })    
+  
+            
+               
+         
+    </script>
+</html>

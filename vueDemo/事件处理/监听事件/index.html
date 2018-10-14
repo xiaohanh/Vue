@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>监听事件</title>
+    </head>
+    <body>
+         <div id="example">
+             <button v-on:click="counter+=1"> add 1</button>
+             <p>The button has been clicked {{ counter }}  times</p>
+             
+         </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#examle"
+            data:{
+                counter: 0
+            }
+        })
+        
+    </script>
+</html>
